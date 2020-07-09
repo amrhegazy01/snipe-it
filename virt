@@ -1,0 +1,10 @@
+sudo virt-install \
+            --name centos4 \
+            --memory 1024 --vcpus 2 --cpu host \
+            --disk /var/lib/libvirt/images/centos4.qcow2,device=disk,bus=virtio \
+	    --disk /var/lib/libvirt/images/centos4.iso,device=cdrom \
+            --os-type linux \
+            --virt-type kvm \
+            --graphics none \
+            --network network=default,model=virtio \
+            --import

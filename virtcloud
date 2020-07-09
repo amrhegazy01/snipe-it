@@ -1,0 +1,15 @@
+sudo virt-install \
+            --name cent \
+            --memory 2048 --cpu host \
+            --disk /var/lib/libvirt/images/cent.qcow2,device=disk,bus=virtio \
+            --disk /var/lib/libvirt/images/cent.iso,device=cdrom \
+            --os-type linux \
+            --os-variant centos7.0 \ 
+            --virt-type kvm \
+            --graphics vnc,listen=0.0.0.0 --noautoconsole \
+            --network network=default,model=virtio \
+            --import
+
+# Use the command "osinfo-query os" to get the list of the accepted OS variants.
+
+# you can add more network interface by adding anothor line --network network=default,model=virtio \
